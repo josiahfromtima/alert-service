@@ -1,6 +1,7 @@
 package com.tima.platform.model.api.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 
 import java.time.Instant;

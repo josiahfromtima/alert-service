@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.function.Consumer;
 
-import static com.tima.platform.util.AppUtil.gsonInstance;
-
 /**
  * @Author: Josiah Adetayo
  * @Email: josleke@gmail.com, josiah.adetayo@meld-tech.com
@@ -23,18 +21,13 @@ public class ActivityAlertEvent {
     private final ActivityAlertService alertService;
 
     @Bean
-    public Consumer<String> alert() {
-        return s -> {
-            log.info("User Activity Alert--- ", s);
-            ActivityAlertRecord request = json(s);
+    public Consumer<ActivityAlertRecord> alert() {
+        return request -> {
+            log.info("User Activity Alert--- ", request);
             if(request == null) return;
             alertService.addNotice(request)
                     .subscribe(r -> log.info("Saved Alert: ", r));
         };
-    }
-
-    private ActivityAlertRecord json(String data) {
-        return gsonInstance().fromJson(data, ActivityAlertRecord.class);
     }
 
 }
