@@ -1,5 +1,5 @@
 FROM amazoncorretto:17-alpine3.18-jdk
-LABEL maintainer="Josiah Adetayo <josleke@gmail.com>"
+LABEL maintainer="Josiah Adetayo <josleke@gmail.com> | <josiah.adetayo@meld-tech.com>"
 #Add volume pointing to /tmp
 VOLUME /tmp
 # Run system update
